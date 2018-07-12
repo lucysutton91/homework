@@ -4,15 +4,19 @@ const householdObj = {}
 let memberId = 0
 
 function formManipulation(){
-  let builder = document.getElementsByClassName("builder")[0]
-  let htmlForm = builder.getElementsByTagName("form")[0]
+
+  let htmlForm = document.getElementsByTagName("form")[0]
   htmlForm.onsubmit = formSubmit
+
   let age = document.getElementsByName("age")[0]
   age.required = true
+
   let relationship = document.getElementsByName("rel")[0]
   relationship.required = true
+
   let addButton = document.getElementsByClassName("add")[0]
   addButton.onclick = addClick
+
 }
 
 function addClick(){
@@ -73,6 +77,10 @@ function householdDisplay(memberObj, idNum){
 
 function formSubmit(){
   let json = JSON.stringify(householdObj)
+  if (json === "{}") {
+    alert("Please add household members before submitting")
+    return false;
+  }
   let container = document.getElementsByClassName("debug")[0]
   container.innerHTML = `the following household has been submitted: 
   ${json}`
