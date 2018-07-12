@@ -86,10 +86,11 @@ function formSubmit(){
   // trip to the server would go in else statement, on a successful response the submitted household would be displayed
   container.innerHTML = `the following household has been submitted: 
 
-  ${json}
+${json}
   
 Is this information incorrect? Edit your response and resubmit`
 
+  container.style.whiteSpace = 'pre-wrap'
   container.style.color = 'black'
   container.style.borderColor = 'black'
   return false
